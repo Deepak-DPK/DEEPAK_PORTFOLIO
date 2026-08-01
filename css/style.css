@@ -625,14 +625,26 @@ ul {
 }
 
 
-.project-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.project-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(10, 13, 20, 0.8);
+    border-left: 1px solid var(--glass-border);
     min-height: 300px;
     height: 100%;
     width: 100%;
-    border-left: 1px solid var(--glass-border);
+}
+
+.project-icon-container i {
+    font-size: 8rem;
+    color: rgba(59, 130, 246, 0.4);
+    transition: var(--transition);
+}
+
+.project-card-premium:hover .project-icon-container i {
+    color: rgba(59, 130, 246, 0.9);
+    transform: scale(1.1);
 }
 
 .project-metrics {
