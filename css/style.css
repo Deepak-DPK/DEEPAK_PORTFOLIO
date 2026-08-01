@@ -624,6 +624,17 @@ ul {
     gap: 20px;
 }
 
+
+.project-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    height: 100%;
+    width: 100%;
+    border-left: 1px solid var(--glass-border);
+}
+
 .project-metrics {
     background: rgba(10, 13, 20, 0.8);
     padding: 50px 40px;
