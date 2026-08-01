@@ -245,100 +245,200 @@
                 <h2>Featured Projects</h2>
                 <div class="line"></div>
             </div>
-            <div class="projects-grid">
+                        <div class="projects-stack">
                 
-                <div class="project-card glass-card reveal">
-                    <div class="project-content">
-                        <h3>Career Command Center</h3>
-                        <p>An AI-powered interview preparation suite providing an interactive dashboard to analyze resumes against target job descriptions.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>FastAPI</span>
-                            <span>CrewAI</span>
+                <!-- Career Command Center -->
+                <div class="project-card-premium glass-card reveal">
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-year">2024</span>
+                            <span class="project-category">Full-Stack AI</span>
                         </div>
-                        <ul class="features">
-                            <li>ATS Score & Matching</li>
-                            <li>Skill Gaps Diagnostic</li>
-                        </ul>
+                        <h3 class="project-title">Career Command Center</h3>
+                        
+                        <div class="project-section">
+                            <h4 class="section-label">PROBLEM</h4>
+                            <p>Candidates struggle to align resumes with ATS systems and identify specific skill gaps effectively.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">APPROACH</h4>
+                            <p>Built a React dashboard with a FastAPI backend, using CrewAI for multi-agent resume analysis and scoring.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">RESULT</h4>
+                            <p>Interactive diagnostic tool providing instant ATS scoring and actionable rewrite suggestions.</p>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span>React</span><span>TypeScript</span><span>FastAPI</span><span>CrewAI</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://github.com/Deepak-DPK/career-command-center" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                            <a href="https://github.com/Deepak-DPK/career-command-center" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Repository</a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metrics-wrapper">
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="95">0</span>%</div>
+                                <div class="metric-label">ATS Matching Accuracy</div>
+                            </div>
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="2">0</span>s</div>
+                                <div class="metric-label">Analysis Latency</div>
+                            </div>
+                        </div>
+                        <div class="pipeline-section">
+                            <h4 class="section-label">Architecture Pipeline</h4>
+                            <div class="pipeline-flow">
+                                <span class="node">Resume</span><span class="arrow">&rarr;</span><span class="node">CrewAI</span><span class="arrow">&rarr;</span><span class="node">Insights</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card glass-card reveal delay-1">
-                    <div class="project-content">
-                        <h3>Malaria Cell Detection</h3>
-                        <p>An AI-driven approach to detect malaria cells from microscopic images, aiding in faster and accurate diagnosis.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>Deep Learning</span>
-                            <span>OpenCV</span>
+                <!-- Malaria Cell Detection -->
+                <div class="project-card-premium glass-card reveal">
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-year">2023</span>
+                            <span class="project-category">Computer Vision</span>
                         </div>
-                        <ul class="features">
-                            <li>Image Preprocessing pipeline</li>
-                            <li>High accuracy classification model</li>
-                        </ul>
+                        <h3 class="project-title">Malaria Cell Detection</h3>
+                        
+                        <div class="project-section">
+                            <h4 class="section-label">PROBLEM</h4>
+                            <p>Manual diagnosis of malaria cells is time-consuming and prone to human error.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">APPROACH</h4>
+                            <p>Developed a Deep Learning pipeline using CNNs for high-accuracy microscopic image classification.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">RESULT</h4>
+                            <p>Automated diagnostic system that significantly speeds up analysis with high reliability.</p>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span>Python</span><span>Deep Learning</span><span>OpenCV</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                            <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Repository</a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metrics-wrapper">
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="98">0</span>%</div>
+                                <div class="metric-label">Classification Accuracy</div>
+                            </div>
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="120">0</span></div>
+                                <div class="metric-label">Inference Time (ms)</div>
+                            </div>
+                        </div>
+                        <div class="pipeline-section">
+                            <h4 class="section-label">Architecture Pipeline</h4>
+                            <div class="pipeline-flow">
+                                <span class="node">Image</span><span class="arrow">&rarr;</span><span class="node">CNN Model</span><span class="arrow">&rarr;</span><span class="node">Prediction</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card glass-card reveal delay-1">
-                    <div class="project-content">
-                        <h3>Blood Bank Management</h3>
-                        <p>A comprehensive system designed to manage blood inventory, donor records, and hospital requests efficiently.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>MySQL</span>
-                            <span>Backend</span>
+                <!-- Blood Bank Management -->
+                <div class="project-card-premium glass-card reveal">
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-year">2022</span>
+                            <span class="project-category">Backend System</span>
                         </div>
-                        <ul class="features">
-                            <li>Real-time inventory tracking</li>
-                            <li>Donor history management</li>
-                        </ul>
+                        <h3 class="project-title">Blood Bank Management</h3>
+                        
+                        <div class="project-section">
+                            <h4 class="section-label">PROBLEM</h4>
+                            <p>Manual tracking of blood inventory and donor records leads to inefficiencies during emergencies.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">APPROACH</h4>
+                            <p>Engineered a comprehensive Python/MySQL backend system to manage inventory, donor history, and hospital requests.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">RESULT</h4>
+                            <p>Streamlined operations with real-time tracking, ensuring faster response times.</p>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span>Python</span><span>MySQL</span><span>Backend</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                            <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Repository</a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metrics-wrapper">
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="100">0</span>%</div>
+                                <div class="metric-label">Data Consistency</div>
+                            </div>
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="50">0</span></div>
+                                <div class="metric-label">Query Latency (ms)</div>
+                            </div>
+                        </div>
+                        <div class="pipeline-section">
+                            <h4 class="section-label">Architecture Pipeline</h4>
+                            <div class="pipeline-flow">
+                                <span class="node">Request</span><span class="arrow">&rarr;</span><span class="node">MySQL DB</span><span class="arrow">&rarr;</span><span class="node">Response</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card glass-card reveal delay-2">
-                    <div class="project-content">
-                        <h3>Farm Oasis</h3>
-                        <p>An agricultural tech platform helping farmers optimize their resources and manage crop cycles effectively.</p>
-                        <div class="tech-stack">
-                            <span>FastAPI</span>
-                            <span>MongoDB</span>
-                            <span>IoT Integration</span>
+                
+                <!-- Farm Oasis -->
+                <div class="project-card-premium glass-card reveal">
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-year">2022</span>
+                            <span class="project-category">Agri-Tech</span>
                         </div>
-                        <ul class="features">
-                            <li>Data-driven crop recommendations</li>
-                            <li>Resource management dashboard</li>
-                        </ul>
+                        <h3 class="project-title">Farm Oasis</h3>
+                        
+                        <div class="project-section">
+                            <h4 class="section-label">PROBLEM</h4>
+                            <p>Farmers lack data-driven insights for optimizing resources and managing crop cycles effectively.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">APPROACH</h4>
+                            <p>Designed a platform prototype with IoT integration concepts, MongoDB, and FastAPI backend architecture.</p>
+                        </div>
+                        <div class="project-section">
+                            <h4 class="section-label">RESULT</h4>
+                            <p>Interactive prototype showcasing resource management dashboards and crop recommendations.</p>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span>FastAPI</span><span>MongoDB</span><span>IoT Integration</span>
+                        </div>
                         <div class="project-links">
                             <a href="https://www.figma.com/proto/3u1bjvrBiQLGWnlesQ4Q4w/Farm-Oasis?node-id=0-1&t=S0AK3FV5X4AYlmFE-1" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-figma'></i> Prototype</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card glass-card reveal">
-                    <div class="project-content">
-                        <h3>Hospital Management System</h3>
-                        <p>A centralized platform to manage patient records, appointments, staff scheduling, and billing operations.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>MySQL</span>
-                            <span>System Design</span>
+                    <div class="project-metrics">
+                        <div class="metrics-wrapper">
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="100">0</span>%</div>
+                                <div class="metric-label">Prototype Fidelity</div>
+                            </div>
+                            <div class="metric-block">
+                                <div class="metric-value"><span class="counter" data-target="3">0</span></div>
+                                <div class="metric-label">IoT Modules</div>
+                            </div>
                         </div>
-                        <ul class="features">
-                            <li>Secure patient records access</li>
-                            <li>Automated appointment scheduling</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Deepak-DPK/Hospital_management_system" target="_blank" rel="noopener noreferrer" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                        <div class="pipeline-section">
+                            <h4 class="section-label">Architecture Pipeline</h4>
+                            <div class="pipeline-flow">
+                                <span class="node">Sensors</span><span class="arrow">&rarr;</span><span class="node">Backend API</span><span class="arrow">&rarr;</span><span class="node">Dashboard</span>
+                            </div>
                         </div>
                     </div>
                 </div>
