@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak | Software Development Instructor</title>
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- BoxIcons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Background Animation Elements -->
+    <div class="bg-animated">
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Deepak<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero section">
+        <div class="hero-container container">
+            <div class="hero-content reveal">
+                <h3 class="greeting">Hi, I'm</h3>
+                <h1 class="name">Deepak</h1>
+                <h2 class="role">Software Development Instructor <span class="highlight">@ NxtWave</span></h2>
+                <p class="tagline">
+                    Helping students become industry-ready software developers through practical learning, real-world projects, backend development, AI-assisted programming, and structured problem solving.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image-container reveal-delay">
+                <div class="hero-image-glass">
+                    <img src="assets/profile.png" alt="Deepak" class="hero-image">
+                </div>
+                <!-- Floating elements -->
+                <div class="floating-badge badge-1"><i class='bx bxl-python'></i></div>
+                <div class="floating-badge badge-2"><i class='bx bxl-java'></i></div>
+                <div class="floating-badge badge-3"><i class='bx bx-code-alt'></i></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>About Me</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text glass-card reveal">
+                    <p>I am a passionate <strong>Software Development Instructor at NxtWave</strong>, dedicated to helping students build strong programming fundamentals and become industry-ready software developers.</p>
+                    <p>With expertise in backend development, database design, and real-world project building, I focus on practical, hands-on learning. My instruction also incorporates modern paradigms, such as AI-assisted development, to ensure students are equipped with state-of-the-art tools and techniques.</p>
+                    <ul class="about-highlights">
+                        <li><i class='bx bx-check-circle'></i> Passion for Teaching</li>
+                        <li><i class='bx bx-check-circle'></i> Backend & Python Development</li>
+                        <li><i class='bx bx-check-circle'></i> AI-Assisted Development</li>
+                        <li><i class='bx bx-check-circle'></i> Database Design</li>
+                        <li><i class='bx bx-check-circle'></i> Real-world Project Building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Experience</h2>
+                <div class="line"></div>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card glass-card reveal">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Software Development Instructor</h3>
+                            <h4 class="company highlight">NxtWave</h4>
+                        </div>
+                        <div class="exp-icon">
+                            <i class='bx bx-briefcase'></i>
+                        </div>
+                    </div>
+                    <ul class="exp-responsibilities">
+                        <li>Teaching Software Development methodologies and core programming concepts.</li>
+                        <li>Conducting interactive, live coding sessions to demonstrate real-time problem-solving.</li>
+                        <li>Mentoring students and guiding them through the lifecycle of real-world projects.</li>
+                        <li>Teaching robust Backend Development and Database Systems.</li>
+                        <li>Helping students prepare effectively for technical interviews.</li>
+                        <li>Promoting and reviewing clean code practices among learners.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="education-card glass-card reveal">
+                <div class="edu-icon">
+                    <i class='bx bxs-graduation'></i>
+                </div>
+                <div class="edu-content">
+                    <h3>Integrated M.Tech in Software Engineering</h3>
+                    <h4 class="university">University Name</h4>
+                    <p class="cgpa">CGPA: <strong>[Your CGPA]</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Technical Skills</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                
+                <div class="skill-category glass-card reveal">
+                    <h3>Programming Languages</h3>
+                    <div class="badges">
+                        <span class="badge"><i class='bx bxl-python'></i> Python</span>
+                        <span class="badge"><i class='bx bxl-java'></i> Java</span>
+                        <span class="badge"><i class='bx bxl-javascript'></i> JavaScript</span>
+                        <span class="badge"><i class='bx bxl-html5'></i> HTML</span>
+                        <span class="badge"><i class='bx bxl-css3'></i> CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal delay-1">
+                    <h3>Backend</h3>
+                    <div class="badges">
+                        <span class="badge"><i class='bx bx-server'></i> FastAPI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal delay-2">
+                    <h3>Databases</h3>
+                    <div class="badges">
+                        <span class="badge"><i class='bx bxs-data'></i> MySQL</span>
+                        <span class="badge"><i class='bx bxl-mongodb'></i> MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal">
+                    <h3>Developer Tools</h3>
+                    <div class="badges">
+                        <span class="badge"><i class='bx bxl-git'></i> Git</span>
+                        <span class="badge"><i class='bx bxl-github'></i> GitHub</span>
+                        <span class="badge"><i class='bx bxl-visual-studio'></i> VS Code</span>
+                        <span class="badge"><i class='bx bxl-google'></i> Google Colab</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal delay-1">
+                    <h3>Operating Systems</h3>
+                    <div class="badges">
+                        <span class="badge"><i class='bx bxl-windows'></i> Windows</span>
+                        <span class="badge"><i class='bx bxl-tux'></i> Linux</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Featured Projects</h2>
+                <div class="line"></div>
+            </div>
+            <div class="projects-grid">
+                
+                <div class="project-card glass-card reveal">
+                    <div class="project-content">
+                        <h3>Malaria Cell Detection</h3>
+                        <p>An AI-driven approach to detect malaria cells from microscopic images, aiding in faster and accurate diagnosis.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Deep Learning</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <ul class="features">
+                            <li>Image Preprocessing pipeline</li>
+                            <li>High accuracy classification model</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card reveal delay-1">
+                    <div class="project-content">
+                        <h3>Blood Bank Management</h3>
+                        <p>A comprehensive system designed to manage blood inventory, donor records, and hospital requests efficiently.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>MySQL</span>
+                            <span>Backend</span>
+                        </div>
+                        <ul class="features">
+                            <li>Real-time inventory tracking</li>
+                            <li>Donor history management</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card reveal delay-2">
+                    <div class="project-content">
+                        <h3>Farm Oasis</h3>
+                        <p>An agricultural tech platform helping farmers optimize their resources and manage crop cycles effectively.</p>
+                        <div class="tech-stack">
+                            <span>FastAPI</span>
+                            <span>MongoDB</span>
+                            <span>IoT Integration</span>
+                        </div>
+                        <ul class="features">
+                            <li>Data-driven crop recommendations</li>
+                            <li>Resource management dashboard</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card reveal">
+                    <div class="project-content">
+                        <h3>Hospital Management System</h3>
+                        <p>A centralized platform to manage patient records, appointments, staff scheduling, and billing operations.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>MySQL</span>
+                            <span>System Design</span>
+                        </div>
+                        <ul class="features">
+                            <li>Secure patient records access</li>
+                            <li>Automated appointment scheduling</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn-icon"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Certifications</h2>
+                <div class="line"></div>
+            </div>
+            <div class="certs-grid">
+                
+                <div class="cert-card glass-card reveal">
+                    <i class='bx bx-cloud cert-icon'></i>
+                    <h3>Microsoft Azure Data Fundamentals</h3>
+                </div>
+
+                <div class="cert-card glass-card reveal delay-1">
+                    <i class='bx bxl-python cert-icon'></i>
+                    <h3>Python</h3>
+                </div>
+
+                <div class="cert-card glass-card reveal delay-2">
+                    <i class='bx bxs-data cert-icon'></i>
+                    <h3>SQL</h3>
+                </div>
+
+                <div class="cert-card glass-card reveal">
+                    <i class='bx bxl-figma cert-icon'></i>
+                    <h3>Figma</h3>
+                </div>
+
+                <div class="cert-card glass-card reveal delay-1">
+                    <i class='bx bx-brain cert-icon'></i>
+                    <h3>AI Fluency</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Contact Me</h2>
+                <div class="line"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info glass-card reveal">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out for collaborations, discussions on tech education, or just to say hi.</p>
+                    
+                    <div class="info-item">
+                        <i class='bx bx-envelope'></i>
+                        <span>hello@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-phone'></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-map'></i>
+                        <span>City, Country</span>
+                    </div>
+
+                    <div class="social-links mt-4">
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#"><i class='bx bxl-github'></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form glass-card reveal delay-1">
+                    <form id="form">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" required placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#home" class="logo">Deepak<span>.</span></a>
+                <p>Software Development Instructor shaping the next generation of developers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                    <a href="#"><i class='bx bx-envelope'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Deepak. All rights reserved.</p>
+            <a href="#home" class="back-to-top"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
