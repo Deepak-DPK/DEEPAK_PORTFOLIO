@@ -57,6 +57,40 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // --- Counter Animation ---
+    const counters = document.querySelectorAll('.counter');
+    
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / 100;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20); // Controls animation speed
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+                observer.unobserve(counter); // Only animate once
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.5
+    });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
     // --- Contact Form Submission (Prevent Default) ---
     const form = document.getElementById('form');
     if (form) {
