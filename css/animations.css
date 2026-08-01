@@ -66,24 +66,24 @@
 /* Scroll Reveal Animations */
 .reveal {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
+    transform: translateY(40px) scale(0.96);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .reveal-delay {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out 0.3s;
+    transform: translateY(40px) scale(0.96);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
 
 .reveal-delay.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* Staggered Delays for grid items */
