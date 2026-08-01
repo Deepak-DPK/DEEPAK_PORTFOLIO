@@ -3,10 +3,10 @@
    ================================================== */
 :root {
     /* Dark Theme Colors */
-    --bg-main: #0a0f1c; /* Deep dark blue/black */
-    --bg-secondary: #131b2f;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --bg-main: #f8fafc; /* Deep dark blue/black */
+    --bg-secondary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
     
     /* Blue Accent */
     --accent-blue: #3b82f6;
@@ -14,9 +14,9 @@
     --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
     
     /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
     
     /* Typography */
     --font-main: 'Inter', sans-serif;
@@ -114,9 +114,9 @@ ul {
 
 .glass-card:hover {
     transform: translateY(-8px) scale(1.01);
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.1);
 }
 
 .btn {
@@ -178,7 +178,7 @@ ul {
 
 .navbar.scrolled {
     padding: 15px 0;
-    background: rgba(10, 15, 28, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -501,7 +501,7 @@ ul {
 
 .badge {
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     border: 1px solid var(--glass-border);
     border-radius: 50px;
     font-size: 0.9rem;
@@ -538,7 +538,7 @@ ul {
     gap: 0;
     padding: 0;
     overflow: hidden;
-    background: rgba(20, 24, 39, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--glass-border);
 }
 
@@ -570,8 +570,8 @@ ul {
 .project-category {
     color: var(--text-primary);
     padding: 2px 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
 
@@ -612,7 +612,7 @@ ul {
 .tech-stack span {
     font-size: 0.75rem;
     color: var(--text-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 6px 12px;
     border-radius: 4px;
     font-weight: 500;
@@ -629,7 +629,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(10, 13, 20, 0.8);
+    background: rgba(241, 245, 249, 0.8);
     border-left: 1px solid var(--glass-border);
     min-height: 300px;
     height: 100%;
@@ -648,7 +648,7 @@ ul {
 }
 
 .project-metrics {
-    background: rgba(10, 13, 20, 0.8);
+    background: rgba(241, 245, 249, 0.8);
     padding: 50px 40px;
     display: flex;
     flex-direction: column;
@@ -693,7 +693,7 @@ ul {
 }
 
 .pipeline-section {
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
     padding-top: 30px;
 }
 
@@ -706,7 +706,7 @@ ul {
 }
 
 .pipeline-flow .node {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     padding: 6px 12px;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -714,7 +714,7 @@ ul {
 }
 
 .pipeline-flow .arrow {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.15);
     font-size: 0.9rem;
 }
 
@@ -806,7 +806,7 @@ ul {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -843,7 +843,7 @@ ul {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-blue);
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* ==================================================
@@ -904,7 +904,7 @@ footer {
 .back-to-top {
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -965,7 +965,7 @@ footer {
         align-items: center;
         transition: var(--transition);
         border-left: 1px solid var(--glass-border);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
     }
     
     .nav-links.active {
