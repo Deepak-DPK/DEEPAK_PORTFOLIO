@@ -3,204 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak R | Software Development Instructor</title>
-    <!-- Google Fonts: Space Grotesk, Karla, JetBrains Mono -->
+    <title>Deepak | Software Development Instructor</title>
+    
+    <!-- Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Karla:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="ide-layout">
-        <!-- Sidebar Explorer -->
-        <aside class="explorer" id="explorer">
-            <div class="explorer-header">
-                <h2>EXPLORER</h2>
-                <button class="mobile-close" id="mobile-close">×</button>
+<body class="dark-theme">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <!-- Background Ambient Glow -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo magnetic" data-magnetic>Deepak<span class="gradient-text">.</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <nav class="explorer-nav">
-                <div class="folder open">
-                    <div class="folder-title"><span class="icon">▼</span> CURRICULUM</div>
-                    <ul class="file-list">
-                        <li><a href="#intro" class="active" data-file="01_intro.py"><span class="icon">#</span> 01_intro.py</a></li>
-                        <li><a href="#skills" data-file="02_config.yaml"><span class="icon">#</span> 02_config.yaml</a></li>
-                        <li><a href="#labs" data-file="03_lab_work.md"><span class="icon">#</span> 03_lab_work.md</a></li>
-                        <li><a href="#credentials" data-file="04_credentials.json"><span class="icon">#</span> 04_credentials.json</a></li>
-                    </ul>
+            <ul class="nav-links">
+                <li><a href="#about" class="hover-underline">About</a></li>
+                <li><a href="#experience" class="hover-underline">Experience</a></li>
+                <li><a href="#projects" class="hover-underline">Projects</a></li>
+                <li><a href="#skills" class="hover-underline">Skills</a></li>
+                <li><a href="#contact" class="magnetic btn-contact" data-magnetic>Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="status-pill stagger-1">
+                    <span class="pulse-dot"></span> instructor.status = active
                 </div>
-                <div class="folder open" style="margin-top: 20px;">
-                    <div class="folder-title"><span class="icon">▼</span> CONTACT</div>
-                    <ul class="file-list">
-                        <li><a href="mailto:deepakramesh15082003@gmail.com" target="_blank"><span class="icon">✉</span> email.sh</a></li>
-                        <li><a href="https://linkedin.com/in/deepakramesh15" target="_blank"><span class="icon">in</span> linkedin.sh</a></li>
-                        <li><a href="https://github.com/Deepak-DPK" target="_blank"><span class="icon">gh</span> github.sh</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- Main Editor Area -->
-        <main class="editor">
-            <header class="editor-tabs">
-                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
-                <div class="tab active" id="active-tab">01_intro.py <span class="close">×</span></div>
-            </header>
-            
-            <div class="editor-content" id="editor-content">
-                <!-- Section 1: Intro -->
-                <section id="intro" class="lesson-section">
-                    <div class="live-hero">
-                        <div class="code-editor-block">
-                            <div class="code-header">
-                                <div class="window-controls">
-                                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                                </div>
-                                <span class="filename">intro.py</span>
-                            </div>
-                            <pre><code id="typing-code"></code><span class="cursor" id="cursor">|</span></pre>
-                        </div>
-                        <div id="execution-result" class="execution-result">
-                            <div class="execution-meta">> EXECUTE intro.py... SUCCESS (12ms)</div>
-                            <h1 class="rendered-title">Deepak R.</h1>
-                            <p class="rendered-bio">I teach Software Development methodologies, database design, and AI-assisted coding. My classroom runs on live-coding and real-time problem-solving.</p>
-                            <p class="rendered-bio">Software Engineering student (MTech @ VIT) dedicated to building scalable, data-driven solutions and bringing analytical rigor to collaborative engineering teams.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Section 2: Skills -->
-                <section id="skills" class="lesson-section">
-                    <h2 class="section-title">02_config.yaml</h2>
-                    <div class="yaml-block code-block">
-<pre><code><span class="keyword">technical_stack</span>:
-  <span class="keyword">languages</span>: 
-    - <span class="string">"Python"</span>
-    - <span class="string">"Java"</span>
-    - <span class="string">"JavaScript"</span>
-    - <span class="string">"HTML/CSS"</span>
-  <span class="keyword">databases</span>: 
-    - <span class="string">"MySQL"</span>
-    - <span class="string">"MongoDB"</span>
-  <span class="keyword">tools</span>: 
-    - <span class="string">"Git / GitHub"</span>
-    - <span class="string">"VS Code"</span>
-    - <span class="string">"Google Colab"</span>
-  <span class="keyword">focus_areas</span>:
-    - <span class="string">"AI Pair Programming"</span>
-    - <span class="string">"Generative AI Integration"</span>
-    - <span class="string">"OOP Principles"</span>
-</code></pre>
-                    </div>
-                </section>
-
-                <!-- Section 3: Labs (Projects) -->
-                <section id="labs" class="lesson-section">
-                    <h2 class="section-title">03_lab_work.md</h2>
-                    
-                    <div class="lab-case-study">
-                        <div class="lab-header">
-                            <span class="lab-badge">Computer Vision</span>
-                            <h3>Malaria Cell Detection</h3>
-                        </div>
-                        <p class="lab-context"><strong>The Constraint:</strong> High-accuracy models (like ResNet50) are computationally heavy for rapid diagnostic environments.</p>
-                        <p class="lab-solution"><strong>The Architecture:</strong> Implemented a Depthwise Separable Convolutional Neural Network. This reduced parameter count while maintaining robust feature extraction.</p>
-                        <div class="lab-data">
-                            <code>> Test Accuracy benchmarked at 95.5%</code><br>
-                            <code>> Outperformed ResNet50 (93.4%) and InceptionV3 (92.1%)</code>
-                        </div>
-                        <div class="lab-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">CNN</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" class="lab-link" target="_blank">View Repository →</a>
-                    </div>
-
-                    <div class="lab-case-study">
-                        <div class="lab-header">
-                            <span class="lab-badge">Backend System</span>
-                            <h3>Blood Bank Management</h3>
-                        </div>
-                        <p class="lab-context"><strong>The Focus:</strong> Reliable data persistence and safe constraints over complex UI.</p>
-                        <p class="lab-solution"><strong>The Implementation:</strong> Engineered a Python backend using OOP principles and FIFO queues to manage donor records and live stock levels. Developed a smart matching feature for blood type compatibility to ensure patient safety.</p>
-                        <p class="lab-note"><em>Note: Opted for a CLI-based interface to prioritize robust data saving and automated state management.</em></p>
-                        <div class="lab-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OOP</span>
-                            <span class="tech-tag">FIFO Queues</span>
-                        </div>
-                        <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" class="lab-link" target="_blank">View Repository →</a>
-                    </div>
-
-                    <div class="lab-case-study">
-                        <div class="lab-header">
-                            <span class="lab-badge">Full-Stack</span>
-                            <h3>Hospital Management System</h3>
-                        </div>
-                        <p class="lab-context"><strong>The Architecture:</strong> A centralized system requiring strict role-based access control (RBAC).</p>
-                        <p class="lab-solution"><strong>The Implementation:</strong> Built with FastAPI and MongoDB. Secured endpoints using JWT and bcrypt, isolating data access for patients, doctors, and administrators through custom dashboards.</p>
-                        <div class="lab-tech">
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">JWT</span>
-                        </div>
-                        <a href="#" class="lab-link" target="_blank">View Details →</a>
-                    </div>
-
-                    <div class="lab-case-study">
-                        <div class="lab-header">
-                            <span class="lab-badge">Agri-Tech</span>
-                            <h3>Farm Oasis</h3>
-                        </div>
-                        <p class="lab-context"><strong>The Problem:</strong> Farmers lack intuitive data-driven insights for optimizing resources.</p>
-                        <p class="lab-solution"><strong>The Prototype:</strong> Designed a seamless e-commerce platform and dashboard prototype in Figma, focusing on high-conversion visuals and intuitive navigation for agricultural products.</p>
-                        <div class="lab-tech">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">UI/UX</span>
-                            <span class="tech-tag">Prototyping</span>
-                        </div>
-                        <a href="https://www.figma.com/proto/3u1bjvrBiQLGWnlesQ4Q4w/Farm-Oasis?node-id=0-1&t=S0AK3FV5X4AYlmFE-1" class="lab-link" target="_blank">View Prototype →</a>
-                    </div>
-
-                </section>
-
-                <!-- Section 4: Credentials -->
-                <section id="credentials" class="lesson-section">
-                    <h2 class="section-title">04_credentials.json</h2>
-                    <div class="json-block code-block">
-<pre><code>[
-  {
-    <span class="keyword">"degree"</span>: <span class="string">"Integrated MTech in Software Engineering"</span>,
-    <span class="keyword">"institution"</span>: <span class="string">"VIT University"</span>,
-    <span class="keyword">"timeline"</span>: <span class="string">"2021 - 2026"</span>,
-    <span class="keyword">"cgpa"</span>: <span class="number">7.71</span>
-  },
-  {
-    <span class="keyword">"degree"</span>: <span class="string">"Higher Secondary (12th Grade)"</span>,
-    <span class="keyword">"institution"</span>: <span class="string">"Islamiah Higher Secondary School"</span>,
-    <span class="keyword">"timeline"</span>: <span class="string">"2020 - 2021"</span>,
-    <span class="keyword">"percentage"</span>: <span class="string">"82.2%"</span>
-  },
-  {
-    <span class="keyword">"certifications"</span>: [
-      <span class="string">"Azure Data Fundamentals (Microsoft)"</span>,
-      <span class="string">"Python & SQL (HackerRank)"</span>,
-      <span class="string">"AI Fluency (Anthropic)"</span>,
-      <span class="string">"Figma (Udemy)"</span>
-    ]
-  }
-]</code></pre>
-                    </div>
-                </section>
+                <h1 class="name stagger-2">
+                    Crafting <span class="gradient-text">Code</span> <br>
+                    & <span class="gradient-text-alt">Careers</span>.
+                </h1>
+                <h2 class="role stagger-3">Software Development Instructor @ NxtWave</h2>
+                <p class="tagline stagger-4">
+                    Helping students become industry-ready software developers through practical learning, real-world projects, and AI-assisted programming.
+                </p>
                 
-                <footer class="editor-footer">
-                    <p>EOF. Designed for educational impact and rigorous engineering.</p>
-                </footer>
+                <div class="hero-cta stagger-5">
+                    <a href="#projects" class="btn btn-primary magnetic" data-magnetic>
+                        <span>Explore Work</span> <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
             </div>
-        </main>
-    </div>
-    
+            
+            <!-- Abstract 3D/Visual element placeholder -->
+            <div class="hero-visual stagger-6">
+                <div class="glass-orb">
+                    <div class="inner-orb"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section reveal-up">
+        <div class="container">
+            <h2 class="section-title"><span class="title-num">01.</span> About Me</h2>
+            <div class="about-grid">
+                <div class="about-text glass-panel">
+                    <p>I am a passionate <strong>Software Development Instructor at NxtWave</strong>, dedicated to helping students build strong programming fundamentals and become industry-ready software developers.</p>
+                    <p>With expertise in backend development, database design, and real-world project building, I focus on practical, hands-on learning. My instruction also incorporates modern paradigms, such as AI-assisted development, to ensure students are equipped with state-of-the-art tools and techniques.</p>
+                </div>
+                <div class="about-stats glass-panel">
+                    <div class="stat-item">
+                        <i class='bx bx-code-alt'></i>
+                        <h3>Backend</h3>
+                        <p>Python, FastAPI, Databases</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class='bx bx-brain'></i>
+                        <h3>AI-Assisted</h3>
+                        <p>Modern tooling & workflows</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class='bx bx-chalkboard'></i>
+                        <h3>Mentorship</h3>
+                        <p>Real-world engineering projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section reveal-up">
+        <div class="container">
+            <h2 class="section-title"><span class="title-num">02.</span> Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item tilt-card" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="job-title">Software Development Instructor</h3>
+                                <h4 class="company gradient-text">NxtWave</h4>
+                            </div>
+                            <div class="exp-icon"><i class='bx bx-briefcase'></i></div>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Instructing modern software development methodologies and core programming paradigms, integrating AI-assisted coding practices.</li>
+                            <li>Orchestrating interactive, live coding sessions to demonstrate real-time, AI-augmented problem-solving.</li>
+                            <li>Mentoring students through end-to-end lifecycles of scalable, real-world engineering projects.</li>
+                            <li>Architecting and teaching robust backend development and modern database system design.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item tilt-card" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="job-title">Integrated M.Tech in Software Engineering</h3>
+                                <h4 class="company">VIT University</h4>
+                            </div>
+                            <div class="exp-icon"><i class='bx bxs-graduation'></i></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section reveal-up">
+        <div class="container">
+            <h2 class="section-title"><span class="title-num">03.</span> Featured Projects</h2>
+            
+            <div class="projects-grid">
+                
+                <!-- Career Command Center -->
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="abstract-visual viz-1">
+                            <i class='bx bx-briefcase-alt-2'></i>
+                        </div>
+                    </div>
+                    <div class="project-info glass-panel">
+                        <div class="project-meta">
+                            <span class="year">2024</span>
+                            <span class="category">Full-Stack AI</span>
+                        </div>
+                        <h3 class="project-name">Career Command Center</h3>
+                        <p class="project-desc">React dashboard with FastAPI backend, using CrewAI for multi-agent resume analysis and scoring.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>FastAPI</span><span>CrewAI</span>
+                        </div>
+                        <a href="https://github.com/Deepak-DPK/career-command-center" target="_blank" class="project-link magnetic" data-magnetic>
+                            <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Malaria Cell Detection -->
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="abstract-visual viz-2">
+                            <div class="metric-display">98%<br><span>Accuracy</span></div>
+                        </div>
+                    </div>
+                    <div class="project-info glass-panel">
+                        <div class="project-meta">
+                            <span class="year">2023</span>
+                            <span class="category">Computer Vision</span>
+                        </div>
+                        <h3 class="project-name">Malaria Cell Detection</h3>
+                        <p class="project-desc">Deep Learning pipeline using CNNs for high-accuracy microscopic image classification.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>Deep Learning</span><span>OpenCV</span>
+                        </div>
+                        <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" target="_blank" class="project-link magnetic" data-magnetic>
+                            <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blood Bank Management -->
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="abstract-visual viz-3">
+                            <i class='bx bx-donate-blood'></i>
+                        </div>
+                    </div>
+                    <div class="project-info glass-panel">
+                        <div class="project-meta">
+                            <span class="year">2022</span>
+                            <span class="category">Backend System</span>
+                        </div>
+                        <h3 class="project-name">Blood Bank Management</h3>
+                        <p class="project-desc">Comprehensive Python/MySQL backend system to manage inventory, donor history, and requests.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>MySQL</span><span>Backend</span>
+                        </div>
+                        <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" target="_blank" class="project-link magnetic" data-magnetic>
+                            <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Farm Oasis -->
+                <div class="project-card tilt-card" data-tilt>
+                    <div class="project-img-wrapper">
+                        <div class="project-overlay"></div>
+                        <div class="abstract-visual viz-4">
+                            <i class='bx bx-leaf'></i>
+                        </div>
+                    </div>
+                    <div class="project-info glass-panel">
+                        <div class="project-meta">
+                            <span class="year">2022</span>
+                            <span class="category">Agri-Tech</span>
+                        </div>
+                        <h3 class="project-name">Farm Oasis</h3>
+                        <p class="project-desc">Platform prototype with IoT integration concepts, MongoDB, and FastAPI backend architecture.</p>
+                        <div class="tech-stack">
+                            <span>FastAPI</span><span>MongoDB</span><span>IoT</span>
+                        </div>
+                        <a href="https://www.figma.com/proto/3u1bjvrBiQLGWnlesQ4Q4w/Farm-Oasis?node-id=0-1&t=S0AK3FV5X4AYlmFE-1" target="_blank" class="project-link magnetic" data-magnetic>
+                            <i class='bx bxl-figma'></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications -->
+    <section id="skills" class="section reveal-up">
+        <div class="container">
+            <h2 class="section-title"><span class="title-num">04.</span> Capabilities</h2>
+            
+            <!-- Infinite Scroll Marquee -->
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <div class="marquee-group">
+                        <div class="marquee-item"><i class='bx bxl-python'></i> Python</div>
+                        <div class="marquee-item"><i class='bx bxl-java'></i> Java</div>
+                        <div class="marquee-item"><i class='bx bxl-javascript'></i> JavaScript</div>
+                        <div class="marquee-item"><i class='bx bx-server'></i> FastAPI</div>
+                        <div class="marquee-item"><i class='bx bxs-data'></i> MySQL</div>
+                        <div class="marquee-item"><i class='bx bxl-mongodb'></i> MongoDB</div>
+                        <div class="marquee-item"><i class='bx bxl-github'></i> GitHub</div>
+                        <div class="marquee-item"><i class='bx bx-brain'></i> AI Tools</div>
+                    </div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxl-python'></i> Python</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxl-java'></i> Java</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxl-javascript'></i> JavaScript</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bx-server'></i> FastAPI</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxs-data'></i> MySQL</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxl-mongodb'></i> MongoDB</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bxl-github'></i> GitHub</div>
+                    <div class="marquee-item" aria-hidden="true"><i class='bx bx-brain'></i> AI Tools</div>
+                </div>
+            </div>
+
+            <div class="certs-grid">
+                <a href="#" class="cert-pill glass-panel magnetic" data-magnetic>Azure Data Fundamentals</a>
+                <a href="#" class="cert-pill glass-panel magnetic" data-magnetic>Claude Code in Action</a>
+                <a href="#" class="cert-pill glass-panel magnetic" data-magnetic>Model Context Protocol</a>
+                <a href="#" class="cert-pill glass-panel magnetic" data-magnetic>AI For Everyone</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section reveal-up">
+        <div class="container">
+            <div class="contact-card glass-panel">
+                <h2 class="section-title">Ready to connect?</h2>
+                <p class="contact-desc">Feel free to reach out for collaborations, discussions on tech education, or just to say hi.</p>
+                
+                <form id="contact-form" class="modern-form">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" id="name" required placeholder=" ">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" required placeholder=" " rows="3"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit magnetic" data-magnetic>
+                        <span>Send Message</span>
+                    </button>
+                </form>
+                
+                <div class="social-footer">
+                    <a href="https://www.linkedin.com/in/deepakramesh15/" target="_blank" class="magnetic" data-magnetic><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/Deepak-DPK" target="_blank" class="magnetic" data-magnetic><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" class="logo">Deepak<span class="gradient-text">.</span></a>
+                <p>&copy; 2026 Deepak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>

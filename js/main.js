@@ -1,145 +1,143 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Custom Cursor ---
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
     
-    // --- Mobile Sidebar Toggle ---
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileCloseBtn = document.getElementById('mobile-close');
-    const explorer = document.getElementById('explorer');
-
-    if (mobileMenuBtn && mobileCloseBtn && explorer) {
-        mobileMenuBtn.addEventListener('click', () => {
-            explorer.classList.add('active');
-        });
-        
-        mobileCloseBtn.addEventListener('click', () => {
-            explorer.classList.remove('active');
-        });
-    }
-
-    // --- Folder Toggle ---
-    const folderTitles = document.querySelectorAll('.folder-title');
-    folderTitles.forEach(title => {
-        title.addEventListener('click', () => {
-            title.parentElement.classList.toggle('open');
-        });
-    });
-
-    // --- Navigation & Tabs ---
-    const fileLinks = document.querySelectorAll('.file-list a[href^="#"]');
-    const activeTab = document.getElementById('active-tab');
-    const editorContent = document.getElementById('editor-content');
-
-    fileLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Update active state in sidebar
-            fileLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    // Check if device has touch capability (disable custom cursor on mobile)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice && cursorDot && cursorOutline) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
             
-            // Update tab name
-            const fileName = link.getAttribute('data-file');
-            if (fileName && activeTab) {
-                activeTab.innerHTML = `${fileName} <span class="close">×</span>`;
-            }
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
             
-            // Close mobile menu on click
-            if (window.innerWidth <= 900) {
-                explorer.classList.remove('active');
-            }
+            // Outline follows with slight delay
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
         });
-    });
 
-    // Update active tab based on scroll position
-    if (editorContent) {
-        editorContent.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.lesson-section');
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (editorContent.scrollTop >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
+        // Hover effect for clickable elements
+        const clickables = document.querySelectorAll('a, button, input, textarea, [data-magnetic]');
+        clickables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
             });
-
-            fileLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                    const fileName = link.getAttribute('data-file');
-                    if (fileName && activeTab) {
-                        activeTab.innerHTML = `${fileName} <span class="close">×</span>`;
-                    }
-                }
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
             });
         });
     }
 
-    // --- Signature Live Typing Hero ---
-    const typingCode = document.getElementById('typing-code');
-    const cursor = document.getElementById('cursor');
-    const executionResult = document.getElementById('execution-result');
-    
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const codeToType = `class Instructor:
-    def __init__(self):
-        self.name = "Deepak R."
-        self.role = "Software Development Instructor"
-        self.focus = ["Backend", "AI Coding", "Databases"]
-        
-    def execute_intro(self):
-        return "Rendering profile..."
-        
-instructor = Instructor()
-instructor.execute_intro()`;
-
-    // Basic syntax highlighting for the typed text
-    function highlightSyntax(text) {
-        return text
-            .replace(/class /g, '<span class="keyword">class </span>')
-            .replace(/def /g, '<span class="keyword">def </span>')
-            .replace(/self/g, '<span class="keyword">self</span>')
-            .replace(/return /g, '<span class="keyword">return </span>')
-            .replace(/"([^"]*)"/g, '<span class="string">"$1"</span>');
-    }
-
-    let i = 0;
-    const typingSpeed = 20; // ms per character
-
-    function typeWriter() {
-        if (prefersReducedMotion) {
-            // Skip animation
-            typingCode.innerHTML = highlightSyntax(codeToType);
-            showExecution();
-            return;
-        }
-
-        if (i < codeToType.length) {
-            // To properly highlight while typing without breaking HTML, 
-            // we update the raw text and then run it through the highlighter
-            const currentText = codeToType.substring(0, i + 1);
-            typingCode.innerHTML = highlightSyntax(currentText);
-            i++;
+    // --- Magnetic Buttons ---
+    const magneticElements = document.querySelectorAll('[data-magnetic]');
+    magneticElements.forEach(elem => {
+        elem.addEventListener('mousemove', (e) => {
+            const rect = elem.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
             
-            // Randomize typing speed slightly for realism
-            const speed = Math.random() * 20 + typingSpeed;
-            setTimeout(typeWriter, speed);
+            elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        elem.addEventListener('mouseleave', () => {
+            elem.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // --- 3D Card Tilt (Vanilla JS VanillaTilt-like effect) ---
+    const tiltCards = document.querySelectorAll('[data-tilt]');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            if (isTouchDevice || window.innerWidth < 900) return;
+            
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const multiplier = 20; // Tilt intensity
+            const xCalc = (x - rect.width / 2) / rect.width * multiplier;
+            const yCalc = -(y - rect.height / 2) / rect.height * multiplier;
+            
+            card.style.transform = `perspective(1000px) rotateX(${yCalc}deg) rotateY(${xCalc}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.5s ease';
+        });
+        
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'none';
+        });
+    });
+
+    // --- Scroll Animations & Navbar Blur ---
+    const navbar = document.getElementById('navbar');
+    const reveals = document.querySelectorAll('.reveal-up');
+    
+    const handleScroll = () => {
+        // Navbar
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            // Finished typing, blink cursor a few times then show result
-            setTimeout(showExecution, 800);
+            navbar.classList.remove('scrolled');
         }
+        
+        // Reveals
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
+        
+        reveals.forEach(reveal => {
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - revealPoint) {
+                reveal.classList.add('active');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Trigger on load
+
+    // --- Mobile Menu ---
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('nav-active');
+            navLinks.classList.toggle('active');
+        });
+        
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('nav-active');
+                navLinks.classList.remove('active');
+            });
+        });
     }
 
-    function showExecution() {
-        if (cursor) cursor.style.display = 'none';
-        if (executionResult) {
-            executionResult.classList.remove('hidden');
-        }
-    }
-
-    // Start the animation if the element exists
-    if (typingCode) {
-        // Initial delay before typing starts
-        setTimeout(typeWriter, 500);
+    // --- Simple Form Handler ---
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('.btn-submit span');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sent Successfully ✓';
+            form.reset();
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+            }, 3000);
+        });
     }
 });
