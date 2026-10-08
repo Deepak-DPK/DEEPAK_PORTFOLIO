@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- Nav scroll shadow ----
+    const nav = document.getElementById('nav');
+    const updateNav = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
+
     // ---- Cursor-reactive hero blob ----
     const blob = document.getElementById('heroBlob');
     if (blob) {
