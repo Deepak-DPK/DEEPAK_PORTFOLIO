@@ -1,57 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile Menu Toggle ---
-    const mobileMenu = document.getElementById('mobile-menu');
+    const toggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Animate hamburger to X
-            const bars = mobileMenu.querySelectorAll('.bar');
-            if (navLinks.classList.contains('active')) {
-                bars[0].style.transform = 'translateY(8px) rotate(45deg)';
-                bars[1].style.opacity = '0';
-                bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-            } else {
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
-            }
+    if (toggle && navLinks) {
+        const bars = toggle.querySelectorAll('.bar');
+
+        toggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('active');
+            bars[0].style.transform = open ? 'translateY(3.75px) rotate(45deg)' : '';
+            bars[1].style.transform = open ? 'translateY(-3.75px) rotate(-45deg)' : '';
         });
 
-        // Close mobile menu on click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                const bars = mobileMenu.querySelectorAll('.bar');
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
+                bars[0].style.transform = '';
+                bars[1].style.transform = '';
             });
         });
     }
 
-    // --- Scroll Reveal Animation ---
-    const revealElements = document.querySelectorAll('.reveal-up');
+    const reveals = document.querySelectorAll('.reveal');
+    let ticking = false;
 
-    const handleScroll = () => {
-        const windowHeight = window.innerHeight;
-        const elementVisible = 150;
-
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
+    const check = () => {
+        const vh = window.innerHeight;
+        reveals.forEach(el => {
+            if (el.classList.contains('visible')) return;
+            if (el.getBoundingClientRect().top < vh - 80) {
+                el.classList.add('visible');
             }
         });
+        ticking = false;
     };
 
-    // Trigger on load
-    handleScroll();
-    // Trigger on scroll
-    window.addEventListener('scroll', handleScroll);
+    const onScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(check);
+            ticking = true;
+        }
+    };
+
+    check();
+    window.addEventListener('scroll', onScroll, { passive: true });
 
 });
