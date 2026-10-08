@@ -1,83 +1,95 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Mobile nav
+    // ---- Mobile nav ----
     const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    if (toggle && links) {
+    const navLinks = document.getElementById('navLinks');
+    if (toggle && navLinks) {
         const bars = toggle.querySelectorAll('span');
         toggle.addEventListener('click', () => {
-            const open = links.classList.toggle('open');
-            bars[0].style.transform = open ? 'translateY(3.25px) rotate(45deg)' : '';
-            bars[1].style.transform = open ? 'translateY(-3.25px) rotate(-45deg)' : '';
+            const open = navLinks.classList.toggle('open');
+            bars[0].style.transform = open ? 'translateY(3.5px) rotate(45deg)' : '';
+            bars[1].style.transform = open ? 'translateY(-3.5px) rotate(-45deg)' : '';
         });
-        links.querySelectorAll('a').forEach(a => {
+        navLinks.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
-                links.classList.remove('open');
+                navLinks.classList.remove('open');
                 bars[0].style.transform = '';
                 bars[1].style.transform = '';
             });
         });
     }
 
-    // Scroll progress bar
-    const bar = document.getElementById('scrollProgress');
-    const updateProgress = () => {
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+    // ---- Nav shadow on scroll ----
+    const nav = document.getElementById('nav');
+    const onNavScroll = () => {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
     };
+    onNavScroll();
 
-    // Scroll reveal with stagger
+    // ---- Scroll reveal with stagger ----
     const reveals = document.querySelectorAll('.reveal');
-    let raf = false;
-    const check = () => {
+    let ticking = false;
+
+    const checkReveal = () => {
         const vh = window.innerHeight;
-        reveals.forEach((el, i) => {
-            if (el.classList.contains('vis')) return;
-            const top = el.getBoundingClientRect().top;
-            if (top < vh - 60) {
-                const siblings = el.parentElement.querySelectorAll('.reveal:not(.vis)');
+        const seen = new Set();
+
+        reveals.forEach(el => {
+            if (el.classList.contains('vis') || seen.has(el)) return;
+            if (el.getBoundingClientRect().top < vh - 80) {
+                const parent = el.parentElement;
+                const siblings = parent.querySelectorAll('.reveal:not(.vis)');
                 let delay = 0;
                 siblings.forEach(s => {
-                    if (s.getBoundingClientRect().top < vh - 60) {
+                    if (s.getBoundingClientRect().top < vh - 80 && !seen.has(s)) {
                         s.style.transitionDelay = delay + 'ms';
                         s.classList.add('vis');
-                        delay += 60;
+                        seen.add(s);
+                        delay += 70;
                     }
                 });
                 if (!el.classList.contains('vis')) {
                     el.classList.add('vis');
+                    seen.add(el);
                 }
             }
         });
-        raf = false;
+        ticking = false;
     };
 
     const onScroll = () => {
-        updateProgress();
-        if (!raf) { requestAnimationFrame(check); raf = true; }
+        onNavScroll();
+        if (!ticking) {
+            requestAnimationFrame(checkReveal);
+            ticking = true;
+        }
     };
 
-    updateProgress();
-    check();
+    checkReveal();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Horizontal drag scroll for projects
-    const scroll = document.getElementById('projectsScroll');
-    if (scroll) {
-        let down = false, startX, scrollL;
-        scroll.addEventListener('mousedown', e => {
-            down = true;
-            scroll.style.cursor = 'grabbing';
-            startX = e.pageX - scroll.offsetLeft;
-            scrollL = scroll.scrollLeft;
+    // ---- Active nav link highlighting ----
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const highlightNav = () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 200) {
+                current = s.id;
+            }
         });
-        scroll.addEventListener('mouseleave', () => { down = false; scroll.style.cursor = ''; });
-        scroll.addEventListener('mouseup', () => { down = false; scroll.style.cursor = ''; });
-        scroll.addEventListener('mousemove', e => {
-            if (!down) return;
-            e.preventDefault();
-            scroll.scrollLeft = scrollL - (e.pageX - scroll.offsetLeft - startX) * 1.5;
+        navAnchors.forEach(a => {
+            a.style.color = a.getAttribute('href') === '#' + current ? '' : '';
+            if (a.getAttribute('href') === '#' + current) {
+                a.style.color = 'var(--text)';
+            } else {
+                a.style.color = '';
+            }
         });
-    }
+    };
+
+    window.addEventListener('scroll', highlightNav, { passive: true });
+    highlightNav();
 
 });
