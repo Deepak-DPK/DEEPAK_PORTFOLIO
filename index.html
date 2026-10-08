@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -15,152 +15,138 @@
 </head>
 <body>
 
+    <div class="grain"></div>
+
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#home" class="nav-logo">Deepak Ramesh</a>
+            <a href="#home" class="nav-logo">DR<span class="dot">.</span></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <span></span>
-                <span></span>
+                <span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
+                <a href="#work">Work</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <p class="hero-label anim" style="--i:0">Software Development Instructor at NxtWave</p>
-                <h1 class="hero-name anim" style="--i:1">Deepak Ramesh</h1>
-                <p class="hero-bio anim" style="--i:2">I help students become industry-ready developers through practical, project-driven learning and modern AI-assisted workflows.</p>
-                <div class="hero-actions anim" style="--i:3">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
-                </div>
-                <div class="hero-links anim" style="--i:4">
-                    <a href="https://www.linkedin.com/in/deepakramesh15/" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
-                    <a href="https://github.com/Deepak-DPK" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                </div>
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <div class="hero-blob" id="heroBlob"></div>
+        <div class="hero-inner">
+            <p class="hero-tag anim-fade" style="--d:0">Software Development Instructor @ NxtWave</p>
+            <h1 class="hero-name" id="heroName" aria-label="Deepak Ramesh">
+                <span class="hero-line">
+                    <span class="letter" style="--i:0">D</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">e</span><span class="letter" style="--i:3">p</span><span class="letter" style="--i:4">a</span><span class="letter" style="--i:5">k</span>
+                </span>
+                <span class="hero-line">
+                    <span class="letter" style="--i:6">R</span><span class="letter" style="--i:7">a</span><span class="letter" style="--i:8">m</span><span class="letter" style="--i:9">e</span><span class="letter" style="--i:10">s</span><span class="letter" style="--i:11">h</span>
+                </span>
+            </h1>
+            <p class="hero-sub anim-fade" style="--d:3">Helping students become industry-ready developers<br>through hands-on projects & AI-assisted workflows.</p>
+            <div class="hero-ctas anim-fade" style="--d:4">
+                <a href="#work" class="btn-accent">Selected Work</a>
+                <a href="#contact" class="btn-ghost">Let's Talk <i class='bx bx-arrow-right'></i></a>
             </div>
-            <div class="hero-photo anim" style="--i:2">
-                <img src="./file_00000000312471fa855d7566a67ffed8.png" alt="Deepak Ramesh" width="360" height="360">
-            </div>
+        </div>
+        <div class="hero-scroll anim-fade" style="--d:5">
+            <span class="scroll-line"></span>
+            <span class="scroll-text">Scroll</span>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-label reveal">About</div>
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <p class="lead">I'm a Software Development Instructor focused on turning students into job-ready engineers through backend development, database design, and real-world project architecture.</p>
-                    <p>My teaching blends strong programming fundamentals with modern tools — including AI-assisted development — so students graduate with skills that transfer directly to the job.</p>
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="divider"></div>
+        <div class="container about-grid">
+            <div class="about-left">
+                <span class="label reveal">About</span>
+                <p class="about-lead reveal">I build the bridge between academic learning and industry readiness — teaching backend systems, database design, and full-stack architecture with a focus on what actually ships.</p>
+                <p class="about-body reveal">My instruction blends core programming fundamentals with modern AI-assisted development, so students graduate with skills that transfer directly to their first engineering role.</p>
+            </div>
+            <div class="about-right">
+                <div class="portrait-wrap reveal">
+                    <img src="./file_00000000312471fa855d7566a67ffed8.png" alt="Deepak Ramesh" class="portrait" id="portrait">
                 </div>
-                <div class="about-facts">
-                    <div class="fact reveal">
-                        <div class="fact-label">Current Role</div>
-                        <div class="fact-value">Instructor at NxtWave</div>
+                <div class="stats">
+                    <div class="stat reveal">
+                        <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Students Mentored</span>
                     </div>
-                    <div class="fact reveal">
-                        <div class="fact-label">Education</div>
-                        <div class="fact-value">M.Tech, Software Engineering — VIT</div>
+                    <div class="stat reveal">
+                        <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Built</span>
                     </div>
-                    <div class="fact reveal">
-                        <div class="fact-label">Focus Areas</div>
-                        <div class="fact-value">Backend, Databases, AI-Assisted Dev</div>
+                    <div class="stat reveal">
+                        <span class="stat-num" data-target="4">0</span>
+                        <span class="stat-label">Certifications</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section section-alt">
+    <!-- Work -->
+    <section class="work" id="work">
+        <div class="divider"></div>
         <div class="container">
-            <div class="section-label reveal">Experience</div>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Development Instructor</h3>
-                            <span class="timeline-badge">Present</span>
-                        </div>
-                        <p class="timeline-org">NxtWave</p>
-                        <ul class="timeline-list">
-                            <li>Teaching modern software development with AI-assisted coding practices</li>
-                            <li>Running live coding sessions demonstrating real-time problem-solving</li>
-                            <li>Mentoring students through end-to-end project lifecycles</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>M.Tech in Software Engineering</h3>
-                        </div>
-                        <p class="timeline-org">VIT University</p>
-                    </div>
-                </div>
+            <div class="section-head">
+                <span class="label reveal">Selected Work</span>
+                <h2 class="sec-title reveal">Featured <span class="accent">Projects</span></h2>
             </div>
-        </div>
-    </section>
+            <div class="proj-grid">
 
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-label reveal">Projects</div>
-            <div class="project-grid">
-
-                <a href="https://github.com/Deepak-DPK/career-command-center" target="_blank" class="project-card reveal">
-                    <div class="project-number">01</div>
-                    <h3 class="project-title">Career Command Center</h3>
-                    <p class="project-desc">React dashboard with FastAPI backend, using CrewAI for multi-agent resume analysis and scoring.</p>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span>React</span><span>FastAPI</span><span>CrewAI</span>
-                        </div>
-                        <span class="project-year">2024</span>
+                <a href="https://github.com/Deepak-DPK/career-command-center" target="_blank" class="proj-card reveal">
+                    <div class="proj-visual grad-1">
+                        <span class="proj-icon"><i class='bx bx-analyse'></i></span>
+                        <span class="proj-num">01</span>
+                    </div>
+                    <div class="proj-body">
+                        <h3>Career Command Center</h3>
+                        <p>React dashboard + FastAPI backend with CrewAI multi-agent resume analysis and scoring.</p>
+                        <div class="proj-tags"><span>React</span><span>FastAPI</span><span>CrewAI</span></div>
+                        <span class="proj-year">2024</span>
                     </div>
                 </a>
 
-                <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" target="_blank" class="project-card reveal">
-                    <div class="project-number">02</div>
-                    <h3 class="project-title">Malaria Cell Detection</h3>
-                    <p class="project-desc">Deep learning pipeline using CNNs for microscopic image classification at 98% accuracy.</p>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span>Python</span><span>CNN</span>
-                        </div>
-                        <span class="project-year">2023</span>
+                <a href="https://github.com/Deepak-DPK/MALARIA_CELL_DETECTION" target="_blank" class="proj-card reveal">
+                    <div class="proj-visual grad-2">
+                        <span class="proj-icon"><i class='bx bx-search-alt'></i></span>
+                        <span class="proj-num">02</span>
+                    </div>
+                    <div class="proj-body">
+                        <h3>Malaria Cell Detection</h3>
+                        <p>Deep learning pipeline using CNNs for microscopic image classification — 98% accuracy.</p>
+                        <div class="proj-tags"><span>Python</span><span>CNN</span><span>Deep Learning</span></div>
+                        <span class="proj-year">2023</span>
                     </div>
                 </a>
 
-                <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" target="_blank" class="project-card reveal">
-                    <div class="project-number">03</div>
-                    <h3 class="project-title">Blood Bank Management</h3>
-                    <p class="project-desc">Python/MySQL backend system managing blood inventory, donor records, and request workflows.</p>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span>Python</span><span>MySQL</span>
-                        </div>
-                        <span class="project-year">2022</span>
+                <a href="https://github.com/Deepak-DPK/Blood_Bank_Management" target="_blank" class="proj-card reveal">
+                    <div class="proj-visual grad-3">
+                        <span class="proj-icon"><i class='bx bx-data'></i></span>
+                        <span class="proj-num">03</span>
+                    </div>
+                    <div class="proj-body">
+                        <h3>Blood Bank Management</h3>
+                        <p>Full backend system managing blood inventory, donor history, and request workflows.</p>
+                        <div class="proj-tags"><span>Python</span><span>MySQL</span></div>
+                        <span class="proj-year">2022</span>
                     </div>
                 </a>
 
-                <a href="https://www.figma.com/proto/3u1bjvrBiQLGWnlesQ4Q4w/Farm-Oasis?node-id=0-1&t=S0AK3FV5X4AYlmFE-1" target="_blank" class="project-card reveal">
-                    <div class="project-number">04</div>
-                    <h3 class="project-title">Farm Oasis</h3>
-                    <p class="project-desc">Mobile-first Figma prototype for an agricultural platform — full UX flow and interaction design.</p>
-                    <div class="project-footer">
-                        <div class="project-tags">
-                            <span>Figma</span><span>UI/UX</span>
-                        </div>
-                        <span class="project-year">2022</span>
+                <a href="https://www.figma.com/proto/3u1bjvrBiQLGWnlesQ4Q4w/Farm-Oasis?node-id=0-1&t=S0AK3FV5X4AYlmFE-1" target="_blank" class="proj-card reveal">
+                    <div class="proj-visual grad-4">
+                        <span class="proj-icon"><i class='bx bxl-figma'></i></span>
+                        <span class="proj-num">04</span>
+                    </div>
+                    <div class="proj-body">
+                        <h3>Farm Oasis</h3>
+                        <p>Mobile-first Figma prototype for an agricultural platform — full UX flow & interaction design.</p>
+                        <div class="proj-tags"><span>Figma</span><span>UI/UX</span><span>Prototype</span></div>
+                        <span class="proj-year">2022</span>
                     </div>
                 </a>
 
@@ -168,51 +154,93 @@
         </div>
     </section>
 
-    <section id="skills" class="section section-alt">
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="divider"></div>
         <div class="container">
-            <div class="section-label reveal">Skills & Tools</div>
-            <div class="skills-grid">
-                <div class="skill reveal"><i class='bx bxl-python'></i><span>Python</span></div>
-                <div class="skill reveal"><i class='bx bxl-java'></i><span>Java</span></div>
-                <div class="skill reveal"><i class='bx bxl-javascript'></i><span>JavaScript</span></div>
-                <div class="skill reveal"><i class='bx bxl-react'></i><span>React</span></div>
-                <div class="skill reveal"><i class='bx bxl-nodejs'></i><span>Node.js</span></div>
-                <div class="skill reveal"><i class='bx bxl-html5'></i><span>HTML / CSS</span></div>
-                <div class="skill reveal"><i class='bx bx-server'></i><span>FastAPI</span></div>
-                <div class="skill reveal"><i class='bx bxl-postgresql'></i><span>MySQL</span></div>
-                <div class="skill reveal"><i class='bx bxl-mongodb'></i><span>MongoDB</span></div>
-                <div class="skill reveal"><i class='bx bxl-docker'></i><span>Docker</span></div>
-                <div class="skill reveal"><i class='bx bxl-github'></i><span>GitHub</span></div>
-                <div class="skill reveal"><i class='bx bx-brain'></i><span>AI Tools</span></div>
+            <div class="section-head">
+                <span class="label reveal">Toolkit</span>
+                <h2 class="sec-title reveal">Skills & <span class="accent">Technologies</span></h2>
             </div>
-            <div class="certs reveal">
-                <div class="section-label" style="margin-top:56px">Certifications</div>
-                <div class="cert-row">
-                    <div class="cert"><i class='bx bx-check-circle'></i> Azure Data Fundamentals</div>
-                    <div class="cert"><i class='bx bx-check-circle'></i> Claude Code in Action</div>
-                    <div class="cert"><i class='bx bx-check-circle'></i> Model Context Protocol</div>
-                    <div class="cert"><i class='bx bx-check-circle'></i> AI For Everyone</div>
+            <div class="skills-marquee reveal">
+                <div class="marquee-track">
+                    <span>Python</span><span class="sep">/</span>
+                    <span>Java</span><span class="sep">/</span>
+                    <span>JavaScript</span><span class="sep">/</span>
+                    <span>React</span><span class="sep">/</span>
+                    <span>Node.js</span><span class="sep">/</span>
+                    <span>FastAPI</span><span class="sep">/</span>
+                    <span>MySQL</span><span class="sep">/</span>
+                    <span>MongoDB</span><span class="sep">/</span>
+                    <span>Docker</span><span class="sep">/</span>
+                    <span>GitHub</span><span class="sep">/</span>
+                    <span>HTML/CSS</span><span class="sep">/</span>
+                    <span>AI Tools</span><span class="sep">/</span>
+                    <span>Python</span><span class="sep">/</span>
+                    <span>Java</span><span class="sep">/</span>
+                    <span>JavaScript</span><span class="sep">/</span>
+                    <span>React</span><span class="sep">/</span>
+                    <span>Node.js</span><span class="sep">/</span>
+                    <span>FastAPI</span><span class="sep">/</span>
+                    <span>MySQL</span><span class="sep">/</span>
+                    <span>MongoDB</span><span class="sep">/</span>
+                    <span>Docker</span><span class="sep">/</span>
+                    <span>GitHub</span><span class="sep">/</span>
+                    <span>HTML/CSS</span><span class="sep">/</span>
+                    <span>AI Tools</span><span class="sep">/</span>
+                </div>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item reveal">
+                    <i class='bx bx-certification'></i>
+                    <div>
+                        <strong>Azure Data Fundamentals</strong>
+                        <span>Microsoft</span>
+                    </div>
+                </div>
+                <div class="cert-item reveal">
+                    <i class='bx bx-certification'></i>
+                    <div>
+                        <strong>Claude Code in Action</strong>
+                        <span>Anthropic</span>
+                    </div>
+                </div>
+                <div class="cert-item reveal">
+                    <i class='bx bx-certification'></i>
+                    <div>
+                        <strong>Model Context Protocol</strong>
+                        <span>Anthropic</span>
+                    </div>
+                </div>
+                <div class="cert-item reveal">
+                    <i class='bx bx-certification'></i>
+                    <div>
+                        <strong>AI For Everyone</strong>
+                        <span>DeepLearning.AI</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container contact-wrap">
-            <div class="section-label reveal">Contact</div>
-            <h2 class="contact-heading reveal">Have a project in mind?<br>Let's work together.</h2>
-            <p class="contact-sub reveal">Open to collaborations, teaching opportunities, and conversations about technology and education.</p>
-            <div class="contact-actions reveal">
-                <a href="https://www.linkedin.com/in/deepakramesh15/" target="_blank" class="btn btn-primary"><i class='bx bxl-linkedin'></i> LinkedIn</a>
-                <a href="https://github.com/Deepak-DPK" target="_blank" class="btn btn-outline"><i class='bx bxl-github'></i> GitHub</a>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="divider"></div>
+        <div class="container contact-inner">
+            <span class="label reveal">Get in Touch</span>
+            <h2 class="contact-title reveal">Have a project<br>in mind<span class="accent">?</span></h2>
+            <p class="contact-desc reveal">Open to collaborations, teaching opportunities, and conversations about technology & education.</p>
+            <div class="contact-links reveal">
+                <a href="https://www.linkedin.com/in/deepakramesh15/" target="_blank" class="btn-accent"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+                <a href="https://github.com/Deepak-DPK" target="_blank" class="btn-ghost"><i class='bx bxl-github'></i> GitHub</a>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-inner">
-            <span class="footer-copy">&copy; 2026 Deepak Ramesh</span>
-            <a href="#home" class="footer-top">Back to top <i class='bx bx-chevron-up'></i></a>
+            <span>&copy; 2026 Deepak Ramesh</span>
+            <span>Built with purpose.</span>
         </div>
     </footer>
 

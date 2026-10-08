@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const bars = toggle.querySelectorAll('span');
         toggle.addEventListener('click', () => {
             const open = navLinks.classList.toggle('open');
-            bars[0].style.transform = open ? 'translateY(3.5px) rotate(45deg)' : '';
-            bars[1].style.transform = open ? 'translateY(-3.5px) rotate(-45deg)' : '';
+            bars[0].style.transform = open ? 'translateY(3.25px) rotate(45deg)' : '';
+            bars[1].style.transform = open ? 'translateY(-3.25px) rotate(-45deg)' : '';
         });
         navLinks.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
@@ -19,14 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---- Nav shadow on scroll ----
-    const nav = document.getElementById('nav');
-    const onNavScroll = () => {
-        nav.classList.toggle('scrolled', window.scrollY > 10);
-    };
-    onNavScroll();
+    // ---- Cursor-reactive hero blob ----
+    const blob = document.getElementById('heroBlob');
+    if (blob) {
+        let bx = window.innerWidth / 2;
+        let by = window.innerHeight / 2;
+        let cx = bx, cy = by;
 
-    // ---- Scroll reveal with stagger ----
+        document.addEventListener('mousemove', e => {
+            bx = e.clientX;
+            by = e.clientY;
+        });
+
+        function animateBlob() {
+            cx += (bx - cx) * 0.04;
+            cy += (by - cy) * 0.04;
+            blob.style.transform = 'translate(' + (cx - 300) + 'px, ' + (cy - 300) + 'px)';
+            requestAnimationFrame(animateBlob);
+        }
+        animateBlob();
+    }
+
+    // ---- Scroll reveal with sibling stagger ----
     const reveals = document.querySelectorAll('.reveal');
     let ticking = false;
 
@@ -36,16 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reveals.forEach(el => {
             if (el.classList.contains('vis') || seen.has(el)) return;
-            if (el.getBoundingClientRect().top < vh - 80) {
+            if (el.getBoundingClientRect().top < vh - 60) {
                 const parent = el.parentElement;
                 const siblings = parent.querySelectorAll('.reveal:not(.vis)');
                 let delay = 0;
                 siblings.forEach(s => {
-                    if (s.getBoundingClientRect().top < vh - 80 && !seen.has(s)) {
+                    if (s.getBoundingClientRect().top < vh - 60 && !seen.has(s)) {
                         s.style.transitionDelay = delay + 'ms';
                         s.classList.add('vis');
                         seen.add(s);
-                        delay += 70;
+                        delay += 80;
                     }
                 });
                 if (!el.classList.contains('vis')) {
@@ -58,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const onScroll = () => {
-        onNavScroll();
         if (!ticking) {
             requestAnimationFrame(checkReveal);
             ticking = true;
@@ -68,28 +81,52 @@ document.addEventListener('DOMContentLoaded', () => {
     checkReveal();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // ---- Active nav link highlighting ----
-    const sections = document.querySelectorAll('section[id]');
-    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    // ---- Count-up animation for stats ----
+    const statNums = document.querySelectorAll('.stat-num[data-target]');
+    const counted = new Set();
 
-    const highlightNav = () => {
-        let current = '';
-        sections.forEach(s => {
-            if (window.scrollY >= s.offsetTop - 200) {
-                current = s.id;
-            }
-        });
-        navAnchors.forEach(a => {
-            a.style.color = a.getAttribute('href') === '#' + current ? '' : '';
-            if (a.getAttribute('href') === '#' + current) {
-                a.style.color = 'var(--text)';
-            } else {
-                a.style.color = '';
+    const countUp = (el) => {
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1800;
+        const start = performance.now();
+
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            el.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+    };
+
+    const checkCounters = () => {
+        statNums.forEach(el => {
+            if (counted.has(el)) return;
+            if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                counted.add(el);
+                countUp(el);
             }
         });
     };
 
-    window.addEventListener('scroll', highlightNav, { passive: true });
-    highlightNav();
+    window.addEventListener('scroll', checkCounters, { passive: true });
+    checkCounters();
+
+    // ---- Portrait hover ripple effect ----
+    const portrait = document.getElementById('portrait');
+    if (portrait) {
+        const wrap = portrait.parentElement;
+        wrap.addEventListener('mousemove', e => {
+            const rect = wrap.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+            portrait.style.transform = 'scale(1.03) translate(' + x + 'px, ' + y + 'px)';
+        });
+        wrap.addEventListener('mouseleave', () => {
+            portrait.style.transform = '';
+        });
+    }
 
 });
